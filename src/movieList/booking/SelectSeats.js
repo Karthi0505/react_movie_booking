@@ -12,7 +12,7 @@ function SelectSeats(props) {
         const nextSquares = seats.slice();
 
        if( nextSquares[i] === null) { //if current clicked element's array element is null
-            nextSquares[i] = 'X';
+            nextSquares[i] = i+1; //='X'
             document.querySelector('#seat-'+i).classList.add("selected");            
         } else {
             nextSquares[i] = null;
