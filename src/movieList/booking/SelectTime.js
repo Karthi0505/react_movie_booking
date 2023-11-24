@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react'
 
-function SelectTime(props) {
+const SelectTime = () => {
+    const [selectedTime, SetSelectedTime] = useState(null);
+
+    //time slot
+    const availableTimeSlots = ['10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM'];
+
+    const handleTimeSlotSelect = (time) => {
+        SetSelectedTime(time);
+    };
+
     return (
         <div>
-            <h1>Select Time</h1>
+            
+            {/* Time slot Heading */}
+            {selectedTime 
+                ? 
+                    <h3>
+                        Selected time:
+                        <strong className="text-success"> {selectedTime}</strong>
+                    </h3>
+                :
+                    <h2>
+                        Select a Time Slot
+                    </h2>
+            }
+            
+
+            {/* Time slot Buttons */}
+            <div className="btn-group mb-4" role="group" aria-label="Basic outlined example">
+            
+                {availableTimeSlots.map((time) => (<button type="button" key={time} onClick={() => handleTimeSlotSelect(time)} className="btn btn-outline-primary">{time}</button>
+                ))}
+            
+            </div>
+
+            
+
+
         </div>
-    );
+    )
 }
 
 export default SelectTime;
