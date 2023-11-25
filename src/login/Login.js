@@ -71,12 +71,12 @@ function App() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required />
+          <input type="text" name="uname" autoComplete="username" required />
           {renderErrorMessage("uname")}
         </div>
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required />
+          <input type="password" name="pass" autoComplete="current-password" required />
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
